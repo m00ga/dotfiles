@@ -10,3 +10,5 @@ zoom.conf
 zoomus.conf
 'Unknown Organization'
 cef_user_data
+.stylua.toml
+nvim/plugin/*
