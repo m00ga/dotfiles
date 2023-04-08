@@ -77,13 +77,25 @@ window#waybar {
 #custom-mic,
 #custom-dismiss_notifications,
 #custom-dnd,
+#bluetooth,
 #mpd {
   padding: 0 10px;
   margin: 0;
 }
 
+#bluetooth.on{
+  border-bottom: 2px solid #8ec07c;
+}
+
+#bluetooth.off{
+  border-bottom: 2px solid #cc241d;
+}
+
+#bluetooth.connected{
+  border-bottom: 2px solid #b16286;
+}
+
 #clock {
-  /* background-color: #282828; */
   background-color: transparent;
   border-bottom: 2px solid #83a598;
 }

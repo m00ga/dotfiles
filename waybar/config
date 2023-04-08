@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces"],
     "modules-center": ["sway/window"],
-    "modules-right": ["idle_inhibitor", "network", "pulseaudio", "backlight", "battery", "sway/language", "clock"],
+    "modules-right": ["idle_inhibitor", "network", "bluetooth", "pulseaudio", "backlight", "battery", "sway/language", "clock"],
     // Modules configuration
     "sway/workspaces": {
     //     "disable-scroll": true,
@@ -32,6 +32,11 @@
             "locked": "",
             "unlocked": ""
         }
+    },
+    "bluetooth": {
+        "format": "",
+        "format-disabled": "",
+        "on-click": "alacritty --class mixer -e bluetuith"
     },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
@@ -102,8 +107,7 @@
     },
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{icon} {percent}%" ,
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+        "format": "󰃞 {percent}%"
     },
     "battery": {
         "states": {

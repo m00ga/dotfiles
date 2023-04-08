@@ -1,14 +1,11 @@
-dconf
-gtk-*
-htop
-Kitware
-neofetch
-pulse
-QtProject.conf
-yay
-zoom.conf
-zoomus.conf
-'Unknown Organization'
-cef_user_data
-.stylua.toml
-nvim/plugin/*
+*
+
+!alacritty
+!mako
+!nvim
+!sway
+!swayidle
+!swaylock
+!waybar
+!wlogout
+!wofi

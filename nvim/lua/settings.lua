@@ -85,7 +85,7 @@ end)
 
 vim.keymap.set('t', 'ii', '<C-\\><C-n>')
 
-require('nvim-ts-autotag').setup()
+-- require('nvim-ts-autotag').setup()
 
 -- cmake
 vim.g.cmake_generate_options = {

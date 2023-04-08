@@ -1,6 +1,10 @@
 require('nvim-treesitter.configs').setup {
   highlight = { enable = true },
   indent = { enable = true, disable = { 'python' } },
+  autotag = {
+    enable = true,
+    filetypes = { "html", "xml", "php", "vue" },
+  },
   incremental_selection = {
     enable = true,
     keymaps = {
