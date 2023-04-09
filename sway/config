@@ -32,8 +32,11 @@ exec wl-paste -p -n -t text --watch clipman store --primary --histpath="~/.cache
 # exec wl-paste -n -p -t text --watch clipman store -P --histpath="~/.cache/clipman-primary.json" >> /tmp/clipman-log.txt 2>&1 &
 bindsym $mod+y exec clipman pick --primary -t wofi --histpath="~/.cache/clipman.json"; wl-paste -p
 
-for_window [app_id="mixer"] floating enable
+for_window [app_id="mixer"] floating enable, border pixel 2
 for_window [app_id="seahorse"] floating enable
+
+client.unfocused "#EBDBB2" "#928374" "#EBDBB2" "#EBDBB2"
+client.focused "#EBDBB2" "#928374" "#EBDBB2" "#EBDBB2"
 
 bindgesture swipe:right workspace prev
 bindgesture swipe:left workspace next
@@ -44,10 +47,8 @@ bindsym $mod+p exec grim - | wl-copy
 bindsym $mod+Shift+p exec grim -g "$(slurp -d)" - | wl-copy
 
 default_border none
-default_floating_border normal
+default_floating_border none
 font pango:monospace 0
-# titlebar_padding 1
-# titlebar_border_thickness 0
 gaps inner 10
 
 ### Output configuration
