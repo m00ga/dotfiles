@@ -9,5 +9,13 @@ map('n', '<Leader>>', '<Cmd>BufferMoveNext<CR>', opts)
 map('n', '<Leader>bc', '<Cmd>BufferClose<CR>', opts)
 map('n', '<Leader>bp', '<Cmd>BufferPin<CR>', opts)
 
-require('bufferline').setup {
+require('barbar').setup {
+  clickable = false,
+  icons = {
+    filetype = {
+      enabled = true
+    },
+    modified = {button = '●'},
+    button = " "
+  },
 }

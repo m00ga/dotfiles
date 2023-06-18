@@ -55,8 +55,10 @@ require('telescope').setup {
 
 
 pcall(require('telescope').load_extension, 'fzf')
-require('telescope').load_extension 'file_browser'
-vim.keymap.set('n', '<leader>ft', ':Telescope file_browser<CR>')
+-- require('telescope').load_extension 'file_browser'
+-- vim.keymap.set('n', '<leader>ft', ':Telescope file_browser<CR>')
+require("nvim-tree").setup()
+vim.keymap.set('n', '<leader>ft', ':NvimTreeToggle<CR>')
 -- require('telescope').load_extension 'projects'
 vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })

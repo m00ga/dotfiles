@@ -12,15 +12,17 @@ return require('packer').startup(function(use)
       'williamboman/mason-lspconfig.nvim',
 
       -- Useful status updates for LSP
-      'j-hui/fidget.nvim',
+      { 'j-hui/fidget.nvim', tag = 'legacy' },
     },
   }
+  use 'jose-elias-alvarez/typescript.nvim'
 
   use { -- Autocompletion
     'hrsh7th/nvim-cmp',
     requires = {
       'hrsh7th/cmp-nvim-lsp',
       'L3MON4D3/LuaSnip',
+      "rafamadriz/friendly-snippets",
       'saadparwaiz1/cmp_luasnip',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
@@ -43,6 +45,12 @@ return require('packer').startup(function(use)
   use 'tpope/vim-sleuth'
   use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons', -- optional
+    },
+  }
   use 'ray-x/lsp_signature.nvim'
   use {
     'windwp/nvim-autopairs',
@@ -78,14 +86,14 @@ return require('packer').startup(function(use)
         log_level = 'error',
         auto_session_suppress_dirs = { '~/', '~/MyApps', '~/Downloads', '/', '~/Homework' },
       }
-      vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+      vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,localoptions'
     end,
   }
   use {
     'rmagatti/session-lens',
     requires = { 'rmagatti/auto-session', 'nvim-telescope/telescope.nvim' },
     config = function()
-      require('session-lens').setup {--[[your custom config--]]
+      require('session-lens').setup { --[[your custom config--]]
       }
     end,
   }

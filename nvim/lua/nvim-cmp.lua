@@ -3,6 +3,12 @@ local luasnip = require 'luasnip'
 
 require('luasnip.loaders.from_vscode').lazy_load()
 
+luasnip.filetype_extend('javascript', { 'javascriptreact' })
+luasnip.filetype_extend('javascript', { 'typescriptreact' })
+luasnip.filetype_extend('javascript', { 'html' })
+
+require 'snippets'
+
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -10,12 +16,12 @@ cmp.setup {
     end,
   },
   mapping = cmp.mapping.preset.insert {
-    ['<C-d>'] = cmp.mapping.scroll_docs( -4),
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
-    ['<CR>'] = cmp.mapping.confirm ({
+    ['<CR>'] = cmp.mapping.confirm {
       select = true,
-    }),
+    },
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -28,8 +34,8 @@ cmp.setup {
     ['<S-Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
-      elseif luasnip.jumpable( -1) then
-        luasnip.jump( -1)
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
       else
         fallback()
       end
