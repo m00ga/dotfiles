@@ -37,7 +37,7 @@ local on_attach = function(_, bufnr)
     nmap('<leader>lf', function()
         vim.lsp.buf.format { timeout_ms = 2000 }
     end, 'Format')
-    require('lsp_signature').on_attach(signature_setup, bufnr)
+    -- require('lsp_signature').on_attach(signature_setup, bufnr)
 end
 
 local util = require 'lspconfig/util'
@@ -104,6 +104,9 @@ local servers = {
             },
         },
     },
+    tsserver = {
+        diagnostics = { ignoredCodes = { 6133 } }
+    }
 }
 
 -- require('neodev').setup()
@@ -144,7 +147,7 @@ null_ls.setup {
             end,
         },
         null_ls.builtins.formatting.prettier,
-        null_ls.builtins.diagnostics.eslint_d,
+        -- null_ls.builtins.diagnostics.eslint_d,
         require 'typescript.extensions.null-ls.code-actions',
     },
 }
@@ -165,6 +168,7 @@ mason_lspconfig.setup_handlers {
                 server = {
                     capabilities = capabilities,
                     on_attach = on_attach,
+                    settings = servers['tsserver']
                 },
                 disable_commands = true,
             }
@@ -176,6 +180,11 @@ mason_lspconfig.setup_handlers {
             settings = servers[server_name],
         }
     end,
+}
+require('lspconfig')['clangd'].setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    settings = servers['clangd'],
 }
 
 require('fidget').setup()
